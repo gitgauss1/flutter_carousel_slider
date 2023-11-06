@@ -265,7 +265,7 @@ class CarouselSliderState extends State<CarouselSlider>
       if (itemOffset > 0) {
         alignment = horizontal ? Alignment.centerRight : Alignment.bottomCenter;
       } else {
-        alignment = horizontal ? Alignment.centerLeft : Alignment.topCenter;
+        alignment = horizontal ? Alignment.center : Alignment.topCenter;
       }
       return Transform.scale(child: child, scale: scale!, alignment: alignment);
     }
@@ -355,7 +355,7 @@ class CarouselSliderState extends State<CarouselSlider>
                 BuildContext storageContext = carouselState!
                     .pageController!.position.context.storageContext;
                 final double? previousSavedPosition =
-                    PageStorage.of(storageContext)?.readState(storageContext)
+                    PageStorage.of(storageContext).readState(storageContext)
                         as double?;
                 if (previousSavedPosition != null) {
                   itemOffset = previousSavedPosition - idx.toDouble();
@@ -364,6 +364,7 @@ class CarouselSliderState extends State<CarouselSlider>
                       carouselState!.realPage.toDouble() - idx.toDouble();
                 }
               }
+              itemOffset = itemOffset.clamp(-1.0, 1.0);
 
               final double enlargeFactor =
                   options.enlargeFactor.clamp(0.0, 1.0);

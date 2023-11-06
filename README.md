@@ -1,6 +1,6 @@
 # carousel_slider
 
-A carousel slider widget.
+A carousel slider widget. Transforms only centerd item
 
 ## Features 
 
