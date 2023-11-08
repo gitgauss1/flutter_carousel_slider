@@ -263,9 +263,9 @@ class CarouselSliderState extends State<CarouselSlider>
       late Alignment alignment;
       final bool horizontal = options.scrollDirection == Axis.horizontal;
       if (itemOffset > 0) {
-        alignment = horizontal ? Alignment.center : Alignment.bottomCenter;
+        alignment = horizontal ? Alignment.centerLeft : Alignment.bottomCenter;
       } else {
-        alignment = horizontal ? Alignment.center : Alignment.topCenter;
+        alignment = horizontal ? Alignment.centerRight : Alignment.topCenter;
       }
       return Transform.scale(child: child, scale: scale!, alignment: alignment);
     }
